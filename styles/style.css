@@ -21,11 +21,6 @@ margin: 0;
      margin-left: 180px;
      margin-top: 148px;
  }
- .banner-anchor{
-     color:black;
-     text-decoration: none;
-     font-family: Arial, Helvetica, sans-serif;
- }
  
  .banner-image img{
      width: 555px;
@@ -34,6 +29,10 @@ margin: 0;
     margin-left: 108px;
     margin-bottom: 86px;
  }
+ .banner-image img:hover{
+    transform: scale(1.2);
+    transition: transform 550ms  ease-in;
+}
 /*----------------
  Common styles 
  -----------------*/
@@ -47,46 +46,72 @@ margin: 0;
 /*--------------------
     players styles 
  --------------------*/ 
-.all-player{
+ .players{
+    padding: 69.5px 157px;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-column-gap: 20px;
+    grid-template-columns: repeat(3,1fr);
+    justify-content: center;
+    grid-column-gap: 30px;
+    grid-row-gap: 30px;
+    align-items: center;
+    
 }
-.players{
-    box-shadow: 5px 5px 30px grey;
-    width: 57%;
-    margin-left: 89px;
-    padding-left: 13px;
-    padding-top: 10px;
+.player{
+    width: 300px;
+    height: 570px;
+    padding: 15px 15px 0 15px;
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.15);
 }
-.a{
-    margin-left: 213px;
-    margin-bottom: 25px;
+.player img{
+    height: 256px;
+    width: 300px;
 }
-.b{
-    margin-left: 74px;
-    margin-bottom: 25px;
+
+.player h3{
+    font-size: 30px;
 }
-.c{
-    margin-left: -55px;
-    margin-bottom: 25px;
+.player p{
+    font-size: 22px;
+    color: gray;
 }
- .player-image{
-     position: relative;
-     width: 265px;
-     height: auto;
+
+/*------------
+ extra section
+ ------------- */
+ .extra-section-container{
+    display: flex;
+    flex-direction: column;
+    padding: 20px 259px;
  }
-
-
- /*-------------------
-  Footer section 
-  ------------------*/
- .logo{
+ .section-title{
+     color: tomato;
+     font-size: 25px;
+     font-family: cursive;
+ }
+.top-players{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+}
+.player-image{
+    width: 300px;
+    height: auto;
+}
+.top-players img:hover{
+    transform: scale(1.2);
+    transition: transform 550ms  ease-in;
+}
+/* Logo section  */
+.logo{
     display: flex;
     justify-content: center;
     margin-top: 100px;
     height: 100px;
 }
+
+ /*-------------------
+  Footer section 
+  ------------------*/
+ 
 .icon{
     display: flex;
     justify-content: center;
@@ -119,11 +144,55 @@ margin: 0;
 
  /* mobile devices */
  @media only screen and (max-width:688px) {
-     .banner{
-         background-color:#2D25A0;
+      body{
+          margin: 0;
+      }
+    /* Banner section  */
+    .banner{
         grid-template-columns: repeat(1,1fr);
-        }
-        .all-player{
-            grid-template-columns: repeat(1,1fr);
-        }
+    }
+    .banner-image{
+        object-fit: contain;
+    }
+
+    /* player section  */
+      .players{
+          grid-template-columns: repeat(1,1fr);
+      }
+
+      /* Extra section  */
+      .top-players{
+        grid-template-columns: repeat(3 ,1fr);
+    }
+      /* footer section  */
+      .logo{
+          height: 65px;
+      }
+ }
+
+ @media only screen and (min-width:688px) and (max-width:995px) {
+     body{
+         margin: 0;
+     }
+      /* Banner section  */
+      .banner{
+          display: block;
+        grid-template-columns: repeat(2,1fr);
+    }
+    .banner-image{
+        object-fit: contain;
+    }
+
+    /* player section  */
+      .players{
+          grid-template-columns: repeat(2,1fr);
+      }
+/* extra-section  */
+     .top-players{
+         grid-template-columns: repeat(1 ,1fr);
+     }
+      /* footer section  */
+      .logo{
+          height: 65px;
+      }
  }
